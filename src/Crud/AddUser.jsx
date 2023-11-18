@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { addUser } from './Api'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 const AddUser = () => {
 
@@ -143,6 +144,7 @@ const AddUser = () => {
         setError(validation())
         if(Object.keys(ErrorList).length===0){
             await addUser(user)
+            toast.success('User Added successfully')
             navigate('/')
          }
 
